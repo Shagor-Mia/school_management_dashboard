@@ -109,7 +109,7 @@ const FinanceChart = () => {
             axisLine={false}
             tick={{ fill: "#d1d5db" }}
             tickLine={false}
-            tickMargin={20}
+            tickMargin={10}
           />
           <Tooltip />
           <Legend
