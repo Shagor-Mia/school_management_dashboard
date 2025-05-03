@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { role, teachersData } from "../../../../lib/data";
+import FormModel from "@/components/FormModel";
 
 type Teacher = {
   id: number;
@@ -84,16 +85,15 @@ const TeacherListPage = () => {
       <td className="hidden md:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/lists/teachers/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Sky ">
-              <Image src={"/view.png"} alt="" width={16} height={16} />
-            </button>
-            {role === "admin" && (
-              <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Purple hover:bg-red-400">
-                <Image src={"/delete.png"} alt="" width={16} height={16} />
-              </button>
-            )}
-          </Link>
+          {role === "admin" && (
+            <Link
+              href={`/lists/teachers/${item.id}`}
+              className="flex items-center gap-2"
+            >
+              <FormModel table="teacher" type="update" data={item} />
+              <FormModel table="teacher" type="delete" id={item.id} />
+            </Link>
+          )}
         </div>
       </td>
     </tr>
@@ -114,9 +114,7 @@ const TeacherListPage = () => {
               <Image src={"/sort.png"} alt="" height={14} width={14} />
             </button>
             {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
-                <Image src={"/plus.png"} alt="" height={14} width={14} />
-              </button>
+              <FormModel table={"teacher"} type={"create"} />
             )}
           </div>
         </div>

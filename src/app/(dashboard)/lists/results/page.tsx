@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { resultsData, role } from "../../../../lib/data";
+import FormModel from "@/components/FormModel";
 
 type Result = {
   id: number;
@@ -69,17 +70,13 @@ const ResultListPage = () => {
       <td className="hidden md:table-cell">{item.date}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/lists/results/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Sky">
-              <Image src="/edit.png" alt="View" width={16} height={16} />
-            </button>
-          </Link>
-
           {role === "admin" && (
-            <Link href={`/lists/results/${item.id}`}>
-              <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Purple">
-                <Image src="/delete.png" alt="Delete" width={16} height={16} />
-              </button>
+            <Link
+              href={`/lists/results/${item.id}`}
+              className="flex items-center gap-2"
+            >
+              <FormModel table="result" type="update" data={item} />
+              <FormModel table="result" type="delete" id={item.id} />
             </Link>
           )}
         </div>
@@ -101,11 +98,7 @@ const ResultListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
               <Image src={"/sort.png"} alt="" height={14} width={14} />
             </button>
-            {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
-                <Image src={"/plus.png"} alt="" height={14} width={14} />
-              </button>
-            )}
+            {role === "admin" && <FormModel table="result" type="update" />}
           </div>
         </div>
       </div>

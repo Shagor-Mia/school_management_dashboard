@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { classesData, role, subjectsData } from "../../../../lib/data";
+import FormModel from "@/components/FormModel";
 
 type Class = {
   id: number;
@@ -56,17 +57,13 @@ const ClassesListPage = () => {
 
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/lists/classes/${item.id}`}>
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Sky">
-              <Image src="/view.png" alt="View" width={16} height={16} />
-            </button>
-          </Link>
-
           {role === "admin" && (
-            <Link href={`/lists/classes/${item.id}`}>
-              <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Purple">
-                <Image src="/delete.png" alt="Delete" width={16} height={16} />
-              </button>
+            <Link
+              href={`/lists/classes/${item.id}`}
+              className="flex items-center gap-2"
+            >
+              <FormModel table="class" type="update" data={item} />
+              <FormModel table="class" type="delete" id={item.id} />
             </Link>
           )}
         </div>
@@ -88,11 +85,7 @@ const ClassesListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
               <Image src={"/sort.png"} alt="" height={14} width={14} />
             </button>
-            {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
-                <Image src={"/plus.png"} alt="" height={14} width={14} />
-              </button>
-            )}
+            {role === "admin" && <FormModel table="class" type="create" />}
           </div>
         </div>
       </div>
