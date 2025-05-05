@@ -3,7 +3,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className=" flex items-center justify-between p-4">
       {/* SEARCH BAR */}
       <div className="hidden md:flex items-center text-xs gap-2 rounded-full border border-gray-300 px-2 py-1">
         <Image src={"/search.png"} alt="" width={12} height={12} />
@@ -25,8 +25,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex flex-col">
-          <span className="text-xs font-medium leading-3">Sagor</span>
-          <span className="text-[10px] text-gray-500 text-right">admin</span>
+          <span className="text-xs text-white font-medium leading-3">
+            Sagor
+          </span>
+          <span className="text-[10px] text-white text-right">admin</span>
         </div>
         <Image
           src={"/avatar.png"}

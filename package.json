@@ -18,6 +18,7 @@
     "react-big-calendar": "^1.18.0",
     "react-calendar": "^5.1.0",
     "react-dom": "^18",
+    "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.56.1",
     "recharts": "^2.15.3",
     "zod": "^3.24.3"
