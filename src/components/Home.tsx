@@ -41,6 +41,18 @@ const Home = () => {
       <div className="w-full bg-slate-800  flex flex-col px-4 md:px-8 ">
         <Navbar />
       </div>
+      <div className="mt-5 mb-5 flex  justify-center items-center relative">
+        <h1 className="font-serif mt-5 mb-5 flex items-center text-5xl text-black hover:text-gray-500">
+          <Image
+            src={"/logo.png"}
+            alt="Logo"
+            width={40}
+            height={40}
+            className="rounded-md transition-opacity"
+          />
+          MA Ahmed School
+        </h1>
+      </div>
       <div className="p-2 bg-blue-100 mt-4 mb-4 rounded-sm">
         <Marquee>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
