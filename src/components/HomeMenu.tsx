@@ -103,7 +103,10 @@ const HomeMenuCard = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Menu</h2>
+      <div className="mb-1">
+        <h2 className="text-2xl font-semibold mb-4">Menu</h2>(for see final
+        prototype of each component just click student and teacher menu)
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
         {filteredItems.map((item, index) => (
           <a
